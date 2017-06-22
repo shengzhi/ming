@@ -126,12 +126,12 @@ func (hs *HTTPServer) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	ctx.Request, ctx.render_ = apireq, ren
 	ctx.Request.Header.ClientIP = hs.clientIP(req)
 	handlers, has := hs.getHandler(ctx.Request.Header)
-	if !has {
+	if has {
+		ctx.chain = handlers
+	} else {
+		ctx.chain = hs.globalChain
 		ctx.Error(404, ErrNoAction)
-		render.Marshal(accept, w, ctx.Response)
-		return
 	}
-	ctx.chain = handlers
 	ctx.Next()
 	render.Marshal(accept, w, ctx.Response)
 }

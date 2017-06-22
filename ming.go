@@ -63,6 +63,8 @@ type (
 		Sign       string `json:",omitempty"` // 签名
 		ClientIP   string `json:",omitempty"` // 客户端IP地址
 		Channel    string `json:",omitempty"` // 平台渠道
+		RequestID  string `json:",omitempty"` // 请求标识
+		Device     string `json:",omitempty"` // 设备ID
 	}
 	// APIRequest API 请求参数
 	APIRequest struct {
