@@ -65,6 +65,7 @@ type (
 		Channel    string `json:",omitempty"` // 平台渠道
 		RequestID  string `json:",omitempty"` // 请求标识
 		Device     string `json:",omitempty"` // 设备ID
+		AppVer     string `json:",omitempty"` // 客户端版本
 	}
 	// APIRequest API 请求参数
 	APIRequest struct {
